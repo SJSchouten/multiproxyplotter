@@ -1,5 +1,11 @@
+% Code produced for the SNF lake warming effect
+% Paleo-proxy plotter for MATLAB
+% Horizontal plotter preferrably used with data on age
+
 close all
 clear 
+
+% CTRL+R to comment out sections, CTRL+T to activate commented code
 
 % Plot parameters
 width = 0.6
@@ -12,6 +18,7 @@ datapath = "X:\04_PROJECTS\2022_Lake_response_warming_SNF\Scripts\Finalized_work
 sheetnames = ["Lowres_Geochemistry","Stats", "XRF", "HSI","Carotenoids","Pollen","MOS","Gerz","NGRIP","insJ","insD","AMS","Burg","Alps","7H"]
 % sheetnames = ['GERZ',"ALPS",'XRFRED',"Pollen",'RoCs',"HSIRED","Carotenoids_Wet",'Green_pigments_wet','NGRIP','InsD','InsJ']
 % sheetnames = ['Lowstats',"Carotenoids_wet"]
+
 for m = 1:length(sheetnames)
     % Data 1 read table Low resolution usually XRF
     data_raw = readcell(datapath,Sheet = sheetnames{m});                       % Loading the dataframe
@@ -68,7 +75,8 @@ for k = 1:length(sel.data)
         initpos = sp(i).Position; set(gca,'position',initpos+[0.07 0 -0.15 0]) 
         % Select the plotting type
         if typ == 'b'
-            bar(x,y,50,'FaceColor',[col],'FaceAlpha',0.4,'EdgeColor','none','ShowBaseLine','off') % Edgecolor is set to black but can be changed
+            barwidth = mean(diff(x))
+            bar(x,y,barwidth,'FaceColor',[col],'FaceAlpha',0.4,'EdgeColor','none','ShowBaseLine','off') % Edgecolor is set to black but can be changed
 %             hold on, plot(y,x,"LineWidth",1,"Color",[col],"Marker",".","MarkerEdgeColor",'k')
 %             xst = x+((x(5)-x(4))/2)
 %             hold on, stairs(y,xst,"LineWidth",0.5,"LineStyle",'-',"Color",0+(col*0.3))

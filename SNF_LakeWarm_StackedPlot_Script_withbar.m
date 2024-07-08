@@ -1,3 +1,20 @@
+%% --- Stacked plots based on excel sheet of collected data ---
+
+% Script which makes stacked vertical plots for selected proxies
+% SNF Lake Warming project - S.J.Schouten - Initiated: 06-09-2023 
+% Last updated: .... By: ....
+
+% Still to improve:
+% - Spacing between header lines, i.e. the titles of the plot
+% - Adding a photograph of the core to the plot
+% - Adding a box indicating the clusters to the plot
+% - Setting line of threshold for pigments and Fe-Mn in the bar plots
+
+% Default settings:
+% height = 0.4
+% bottom = 0.3
+% nrplots = 20 
+
 close all
 clear 
 
